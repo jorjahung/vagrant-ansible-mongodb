@@ -6,3 +6,10 @@
       command: /usr/sbin/locale-gen en_GB.UTF-8
   roles:
     - mongodb
+  tasks:
+    - name: make MongoDB run on all interfaces
+      lineinfile: dest=/etc/mongod.conf
+                  regexp="^bind_ip"
+                  insertbefore="^bind_ip"
+                  line="#bind_ip = 127.0.0.1"
+                  state=present
