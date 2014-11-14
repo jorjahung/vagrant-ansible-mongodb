@@ -1,0 +1,12 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    database: uptime
+    username: uptime
+    password: password
+  roles:
+    - mongodb_user_module_requirements
+  tasks:
+    - name: Uptime | Create username and password
+      mongodb_user: database={{ database }} name={{ username }} password={{ password }} state=present

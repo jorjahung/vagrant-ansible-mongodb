@@ -1,0 +1,12 @@
+---
+- name: mongodb_user module | Install build-essential
+  apt: pkg=build-essential
+
+- name: mongodb_user module | Install python-dev
+  apt: pkg=python-dev
+
+- name: mongodb_user module | Install python-pip
+  apt: pkg=python-pip
+
+- name: mongodb_user module | Install the latest pymongo package
+  pip: name=pymongo state=latest use_mirrors=no
